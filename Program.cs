@@ -31,6 +31,8 @@ var runnable = Assembly.GetExecutingAssembly()
 if (runnable is null)
     throw new Exception("Runnable not found");
 
+Console.WriteLine($"--- Running Day {day} ---");
+
 var result = await runnable.RunPartOne();
 Console.WriteLine(result);
 
