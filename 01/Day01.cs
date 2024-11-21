@@ -16,21 +16,21 @@ public class Day01 : IRunnable
             .AsReadOnly();
     }
 
-    public Task<string> RunPartOne()
+    public object RunPartOne()
     {
         foreach (var (index, entry) in entries.Select((value, i) => (i, value)))
         {
             foreach (var entry2 in entries.Skip(index + 1))
             {
                 if (entry + entry2 == 2020)
-                    return Task.FromResult((entry * entry2).ToString());
+                    return entry * entry2;
             }
         }
 
         throw new Exception("Result not found");
     }
 
-    public Task<string> RunPartTwo()
+    public object RunPartTwo()
     {
         foreach (var (index, entry) in entries.Select((value, i) => (i, value)))
         {
@@ -39,7 +39,7 @@ public class Day01 : IRunnable
                 foreach (var entry3 in entries.Skip(index + index2 + 2))
                 {
                     if (entry + entry2 + entry3 == 2020)
-                        return Task.FromResult((entry * entry2 * entry3).ToString());
+                        return entry * entry2 * entry3;
                 }
             }
         }

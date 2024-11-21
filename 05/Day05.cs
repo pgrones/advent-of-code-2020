@@ -37,20 +37,18 @@ public class Day05 : IRunnable
             .ToArray();
     }
 
-    public Task<string> RunPartOne()
-    {
-        return Task.FromResult(passes.Select(x => x.GetId()).Max().ToString());
-    }
+    public object RunPartOne() 
+        => passes.Select(x => x.GetId()).Max();
 
-    public Task<string> RunPartTwo()
+    public object RunPartTwo()
     {
         var sortedPasses = passes.Select(x => x.GetId()).OrderBy(x => x).ToList();
         for (var i = 0; i < sortedPasses.Count - 1; i++)
         {
             if (sortedPasses[i] + 1 != sortedPasses[i + 1])
-                return Task.FromResult((sortedPasses[i] + 1).ToString());
+                return sortedPasses[i] + 1;
         }
 
-        return Task.FromResult("No result");
+        throw new Exception("Result not found");
     }
 }

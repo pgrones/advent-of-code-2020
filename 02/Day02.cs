@@ -29,7 +29,7 @@ public class Day02 : IRunnable
             .AsReadOnly();
     }
 
-    public Task<string> RunPartOne()
+    public object RunPartOne()
     {
         var validPasswords = 0;
         foreach (var password in passwords)
@@ -40,10 +40,10 @@ public class Day02 : IRunnable
                 validPasswords++;
         }
 
-        return Task.FromResult(validPasswords.ToString());
+        return validPasswords;
     }
 
-    public Task<string> RunPartTwo()
+    public object RunPartTwo()
     {
         var validPasswords = passwords
             .Select(password => password.Password[password.Min - 1] != password.Password[password.Max - 1] &&
@@ -51,6 +51,6 @@ public class Day02 : IRunnable
                                  password.Password[password.Max - 1] == password.Letter))
             .Count(isValid => isValid);
 
-        return Task.FromResult(validPasswords.ToString());
+        return validPasswords;
     }
 }

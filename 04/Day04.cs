@@ -43,15 +43,9 @@ public class Day04 : IRunnable
             .ToArray();
     }
 
-    public Task<string> RunPartOne()
-    {
-        var valid = passports.Count(x => requiredFields.Keys.All(x.ContainsKey));
-        return Task.FromResult(valid.ToString());
-    }
+    public object RunPartOne()
+        => passports.Count(x => requiredFields.Keys.All(x.ContainsKey));
 
-    public Task<string> RunPartTwo()
-    {
-        var valid = passports.Count(x => requiredFields.Keys.All(y => x.ContainsKey(y) && requiredFields[y](x[y])));
-        return Task.FromResult(valid.ToString());
-    }
+    public object RunPartTwo()
+        => passports.Count(x => requiredFields.Keys.All(y => x.ContainsKey(y) && requiredFields[y](x[y])));
 }

@@ -33,8 +33,8 @@ if (runnable is null)
 
 Console.WriteLine($"--- Running Day {day} ---");
 
-var result = await runnable.RunPartOne();
+var result = runnable.RunPartOne();
 Console.WriteLine(result);
 
-result = await runnable.RunPartTwo();
+result = runnable.RunPartTwo();
 Console.WriteLine(result);

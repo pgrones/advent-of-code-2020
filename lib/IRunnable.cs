@@ -2,6 +2,6 @@
 
 public interface IRunnable
 {
-    Task<string> RunPartOne();
-    Task<string> RunPartTwo();
+    object RunPartOne();
+    object RunPartTwo();
 }

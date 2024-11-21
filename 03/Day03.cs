@@ -41,10 +41,10 @@ public class Day03 : IRunnable
         return trees;
     }
 
-    public Task<string> RunPartOne()
-        => Task.FromResult(SimulateSlope(3, 1).ToString());
+    public object RunPartOne()
+        => SimulateSlope(3, 1).ToString();
 
-    public Task<string> RunPartTwo()
+    public object RunPartTwo()
     {
         (int, int)[] slopes = [(1, 1), (3, 1), (5, 1), (7, 1), (1, 2)];
         var result = 1L;
@@ -54,6 +54,6 @@ public class Day03 : IRunnable
             result *= SimulateSlope(x, y);
         }
 
-        return Task.FromResult(result.ToString());
+        return result;
     }
 }
