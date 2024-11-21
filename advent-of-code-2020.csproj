@@ -18,6 +18,9 @@
       <None Update="03\input.txt">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
+      <None Update="04\input.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
 </Project>
