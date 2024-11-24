@@ -45,6 +45,22 @@ public class Day09 : IRunnable
 
     public object RunPartTwo()
     {
-        throw new NotImplementedException();
+        for (var i = 0; i < numbers.IndexOf(invalidNumber); i++)
+        {
+            var set = new List<long>();
+            for (var j = i; j < numbers.IndexOf(invalidNumber); j++)
+            {
+                set.Add(numbers[j]);
+                var sum = set.Sum();
+
+                if (sum == invalidNumber)
+                    return set.Min() + set.Max();
+
+                if (sum > invalidNumber)
+                    break;
+            }
+        }
+        
+        throw new Exception("No result found");
     }
 }
